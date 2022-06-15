@@ -18,4 +18,14 @@ class DataPeminjam extends Model
     public function jenis_kelamin(){
         return $this->belongsTo('App\Models\JenisKelamin', 'id_jenis_kelamin');
     }
+
+     public function data_buku()
+    {
+        return $this->belongsToMany('App\Models\DataBuku', 'peminjaman', 'id_peminjam', 'id_buku');
+    }
+
+    public function peminjaman()
+    {
+        return $this->hasMany('App\Models\Peminjaman', 'id_peminjam');
+    }
 }

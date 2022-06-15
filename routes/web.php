@@ -54,8 +54,15 @@ Route::get('collection_toarray', 'App\Http\Controllers\DataPeminjamController@co
 
 Route::get('collection_tojson', 'App\Http\Controllers\DataPeminjamController@collection_tojson');
 
+Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
 
+Route::get('peminjaman/create', 'App\Http\Controllers\PeminjamanController@create')->name('peminjaman.create');
 
+Route::post('peminjaman/store', 'App\Http\Controllers\PeminjamanController@store')->name('peminjaman.store');
+
+Route::get('peminjaman/detail_peminjam/{id}', 'App\Http\Controllers\PeminjamanController@detail_peminjam')->name('peminjaman.detail_peminjam');
+
+Route::get('peminjaman/detail_buku/{id}', 'App\Http\Controllers\PeminjamanController@detail_buku')->name('peminjaman.detail_buku');
 
 // Route::get('biodata', function(){
 //     return 'Nama : Vito <br> Nim : 43320011 <br> Alamat : Pedurungan, Semarang <br> Hobi : Turu';
