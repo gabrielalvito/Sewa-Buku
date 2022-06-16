@@ -30,6 +30,11 @@ return [
 
     'disks' => [
 
+        'foto_peminjam' => [
+            'driver' => 'local',
+            'root' => public_path('foto_peminjam'),
+        ],
+        
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

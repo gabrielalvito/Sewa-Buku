@@ -21,6 +21,7 @@
                     <th>Alamat</th>
                     <th>Pekerjaaan</th>
                     <th>Nomor Telepon</th>
+                    <th>Foto</th>
                     <th>Edit</th>
                     <th>Hapus</th>
                 </tr>
@@ -38,8 +39,18 @@
                     <td>{{ !empty($peminjam->telepon['nomor_telepon'])?
                             $peminjam->telepon['nomor_telepon'] : '-'
                         }}
-                    <td><a href="{{ route('data_peminjam.edit', $peminjam->id) }}" class="btn btn-success btn-sm">Edit</a></td>
+                    </td>
                     <td>
+                        @if(empty($peminjam->foto))
+                        <img src="{{ asset('foto_peminjam/default.jpg') }}" alt="" style="width: 50px;height:60px;">
+                        @else
+                        <img src="{{ asset('foto_peminjam/' .$peminjam->foto) }}" alt="" style="width: 50px;height:50px;"> 
+                        @endif
+                    </td>
+
+                        <td><a href="{{ route('data_peminjam.edit', $peminjam->id) }}" class="btn btn-success btn-sm">Edit</a></td>
+                    
+                        <td>
                         <form action="{{ route('data_peminjam.destroy', $peminjam->id) }}" method="POST">
                             @csrf
                                 <button class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</button>

@@ -1,1 +1,1 @@
-<h1 style="color: #00fc54"; align="center">Aplikasi Sewa Buku</h1>
+<h1 style="color: green"; align="center">Aplikasi Sewa Buku</h1>
