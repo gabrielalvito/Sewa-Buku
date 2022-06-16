@@ -51,6 +51,7 @@
             <strong>
                 Jummlah Peminjam : {{ $jumlah_peminjam }}
             </strong>
+            <p>{{ $data_peminjam->links() }}</p>
             
         </div>
 </div>

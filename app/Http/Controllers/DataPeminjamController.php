@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Session;
 class DataPeminjamController extends Controller
 {
     public function index(){
-        $data_peminjam  = DataPeminjam::all()->sortBy('nama_peminjam');
-        $jumlah_peminjam = $data_peminjam->count();
-        return view('data_peminjam.index', compact('data_peminjam', 'jumlah_peminjam'));
+        $jumlah_peminjam = DataPeminjam::count();
+        $data_peminjam  = DataPeminjam::orderBy('id', 'asc')->paginate(5);
+        $no = 0;
+        return view('data_peminjam.index', compact('data_peminjam','no', 'jumlah_peminjam'));
     }
 
     public function create(){
