@@ -42,9 +42,9 @@
                     </td>
                     <td>
                         @if(empty($peminjam->foto))
-                        <img src="{{ asset('foto_peminjam/default.jpg') }}" alt="" style="width: 50px;height:60px;">
+                        <img src="{{ asset('foto_peminjam/default.jpg') }}" alt="" style="width: 50px;height:55px;">
                         @else
-                        <img src="{{ asset('foto_peminjam/' .$peminjam->foto) }}" alt="" style="width: 50px;height:50px;"> 
+                        <img src="{{ asset('foto_peminjam/' .$peminjam->foto) }}" alt="" style="width: 50px;height:55px;"> 
                         @endif
                     </td>
 

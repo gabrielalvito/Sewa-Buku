@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label>Alamat</label>
                 <br>
-                <textarea name="alamat" id="" cols="148" rows="3"></textarea>
+                <textarea name="alamat" id="" cols="173" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label>Pekerjaan</label>
@@ -57,7 +57,7 @@
             </div>
             <div>
                 <br>
-                <button type="submit">Simpan</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
             </div>
         </form>
     </div>
