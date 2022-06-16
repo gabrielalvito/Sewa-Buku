@@ -4,6 +4,14 @@
     <div class = "container">
         <h4>Tambah Data Peminjam</h4>
 
+        @if (count($errors) >0)
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
         <form method="POST" action="{{ route('data_peminjam.store') }}">
         @csrf
             <div class="form-group">

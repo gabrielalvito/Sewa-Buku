@@ -26,6 +26,12 @@ class DataPeminjamController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request,[
+            'kode_peminjam' => 'required|string',
+            'nama_peminjam' => 'required|string|max:30',
+            'tanggal_lahir' => 'required|date'
+        ]);
+        
         $data_peminjam = new DataPeminjam;
         $data_peminjam->kode_peminjam = $request->kode_peminjam;
         $data_peminjam->nama_peminjam = $request->nama_peminjam;
