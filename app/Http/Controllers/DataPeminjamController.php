@@ -82,12 +82,19 @@ class DataPeminjamController extends Controller
                 $data_peminjam->telepon()->save($telepon);
             }
         }
+
+        Session::flash('flash_message', 'Data Peminjam Berhasil Diupdate');
+
         return redirect('data_peminjam');
     }
 
     public function destroy($id){
         $data_peminjam = DataPeminjam::find($id);
         $data_peminjam->delete();
+
+        Session::flash('flash_message', 'Data Peminjam Berhasil Dihapus');
+        Session::flash('penting', true);
+
         return redirect('data_peminjam');
     }
 
