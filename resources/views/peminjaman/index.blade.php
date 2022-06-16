@@ -3,8 +3,8 @@
     <div class = "container">
         <h4>Data Peminjam</h4>
         <p align="right"><a href="{{route('peminjaman.create')}}" class="btn btn-success">Tambah Data Peminjaman</a></p>
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-dark table-striped">
+            <thead">
                 <tr>
                     <th>No</th>
                     <th>Kode Transaksi</th>

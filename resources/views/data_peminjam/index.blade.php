@@ -3,8 +3,11 @@
 @section('content')
     <div class = "container">
         <h4>Data Peminjam</h4>
+
+        @include('_partial/flash_message')
+
         <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p>
-        <table class="table table-striped">
+        <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th>No</th>

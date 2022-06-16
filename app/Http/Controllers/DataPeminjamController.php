@@ -10,6 +10,7 @@ use App\Models\Telepon;
 
 use App\Models\JenisKelamin;
 
+use Illuminate\Support\Facades\Session;
 
 class DataPeminjamController extends Controller
 {
@@ -37,6 +38,9 @@ class DataPeminjamController extends Controller
         $telepon = new Telepon;
         $telepon->nomor_telepon = $request->telepon;
         $data_peminjam->telepon()->save($telepon);
+        
+        Session::flash('flash_message', 'Data Peminjam Berhasil Disimpan');
+
         return redirect('data_peminjam');
     }
 
