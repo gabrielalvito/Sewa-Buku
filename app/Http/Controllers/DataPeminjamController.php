@@ -105,6 +105,14 @@ class DataPeminjamController extends Controller
         return redirect('data_peminjam');
     }
 
+    public function search(Request $request){
+        $batas = 5;
+        $cari = $request->kata;
+        $data_peminjam = DataPeminjam::where('nama_peminjam','like', '&'.$cari.'&')->paginate($batas);
+        $no = $batas * ($data_peminjam->currentPage() -1 );
+        return view('data_peminjam.search', compact('data_peminjam', 'no', 'cari'));
+    }
+
     public function CobaCollection(){
         $daftar = ['Gabriel Alvito',
                     'M. Bagus',

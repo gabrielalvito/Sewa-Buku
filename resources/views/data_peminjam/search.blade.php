@@ -5,11 +5,10 @@
         <h4>Data Peminjam</h4>
 
         @include('_partial/flash_message')
-
+        <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p>
         <form action="{{ route('data_peminjam.search') }}" method="get">@csrf
             <input type="text" name="kata" placeholder="Cari...">
         </form>
-        <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -58,4 +57,11 @@
             
         </div>
 </div>
+
+@else
+<div>
+    <h4>Data {{ $cari }} tidak ditemukan</h4>
+    <a href="/data_peminjam">Kembali</a>
+</div>
+@endif
 @endsection

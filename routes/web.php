@@ -64,6 +64,8 @@ Route::get('peminjaman/detail_peminjam/{id}', 'App\Http\Controllers\PeminjamanCo
 
 Route::get('peminjaman/detail_buku/{id}', 'App\Http\Controllers\PeminjamanController@detail_buku')->name('peminjaman.detail_buku');
 
+Route::get('data_peminjam/search', 'App\Http\Controllers\DataPeminjamController@search')->name('data_peminjam.search');
+
 // Route::get('biodata', function(){
 //     return 'Nama : Vito <br> Nim : 43320011 <br> Alamat : Pedurungan, Semarang <br> Hobi : Turu';
 // });
