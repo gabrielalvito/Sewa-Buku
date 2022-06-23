@@ -6,18 +6,34 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+        <a class="nav-link active" aria-current="page" href="{{ route('data_peminjam.index') }}" style="color: white;">Data Peminjam</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white;">Lihat Data Peminjam</a>
+        <a class="nav-link" href="{{ route('peminjaman.index') }}" style="color: white;">Transaksi Peminjaman</a>
       </li>
-      </div>
+      <li class="nav-item">
+        <a class="btn btn-success" href="{{ route('logout') }}" style="color: white;" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+        <form action="{{ route('logout') }}" method="POST" id= "logout-form" class="d-none">
+          @csrf
+        </form>
+      </li>
+    </ul>
+  </div>
+    <div>
+      @if(Auth::check())
+      <b style="color: white; padding-right:10px">{{ 'Hai, '. Auth::user()->name }}</b>
+      @else
+      @endif
+    </div>
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-success" type="submit">Search</button>
+      <button class="btn btn-success " type="submit">Search</button>
     </form>
   </div>
+ </div>
 </nav>
