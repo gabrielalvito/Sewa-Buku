@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('content')
     <div class = "container">
+        <br>
         <h4>Data Peminjam</h4>
         <p align="right"><a href="{{route('peminjaman.create')}}" class="btn btn-success">Tambah Data Peminjaman</a></p>
         <table class="table table-dark table-striped">

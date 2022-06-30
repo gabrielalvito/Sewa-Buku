@@ -15,6 +15,9 @@
         <a class="nav-link" href="{{ route('peminjaman.index') }}" style="color: white;">Transaksi Peminjaman</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.index') }}" style="color: white;">User</a>
+      </li>
+      <li class="nav-item">
         <a class="btn btn-success" href="{{ route('logout') }}" style="color: white;" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 

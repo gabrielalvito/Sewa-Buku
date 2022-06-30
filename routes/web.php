@@ -70,3 +70,16 @@ Route::get('peminjaman/detail_peminjam/{id}', 'App\Http\Controllers\PeminjamanCo
 Route::get('peminjaman/detail_buku/{id}', 'App\Http\Controllers\PeminjamanController@detail_buku')->name('peminjaman.detail_buku');
 
 Route::get('data_peminjam/search', 'App\Http\Controllers\DataPeminjamController@search')->name('data_peminjam.search');
+
+//USER
+Route::get('user', 'App\Http\Controllers\UserController@index')->name('user.index');
+
+Route::get('user/create', 'App\Http\Controllers\UserController@create')->name('user.create');
+
+Route::post('user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
+
+Route::get('user/edit/{id}', 'App\Http\Controllers\UserController@edit')->name('user.edit');
+
+Route::post('user/update/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
+
+Route::post('user/destroy/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');

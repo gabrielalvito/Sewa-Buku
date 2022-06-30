@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\User;
+
 class DataPeminjamController extends Controller
 {
     public function index(){
@@ -51,6 +53,7 @@ class DataPeminjamController extends Controller
         $data_peminjam->alamat = $request->alamat;
         $data_peminjam->pekerjaan = $request->pekerjaan;
         $data_peminjam->foto = $nama_file;
+        $data_peminjam->user_id = $request->user_id;
         $data_peminjam->save();
 
         $telepon = new Telepon;
@@ -85,6 +88,13 @@ class DataPeminjamController extends Controller
             $data_peminjam->pekerjaan = $request->pekerjaan;
             $data_peminjam->foto = $nama_file;
             $data_peminjam->update();
+
+            //Ketika kolom name pada tabel nama_peminjam diedit maka kolum user juga berubah
+            $cari_user_id = DataPeminjam::where('id',$id)->pluck('user_id');
+            $user = User::where('id',$cari_user_id);
+            $user->update([
+                'name' => $request->nama_peminjam,
+            ]);
         }
         else{
             $data_peminjam->kode_peminjam = $request->kode_peminjam;
@@ -94,6 +104,13 @@ class DataPeminjamController extends Controller
             $data_peminjam->alamat = $request->alamat;
             $data_peminjam->pekerjaan = $request->pekerjaan;
             $data_peminjam->update();
+            
+            //Ketika kolom name tabel nama_peminjam diedit maka kolom user juga berubah
+            $cari_user_id = DataPeminjam::where('id',$id)->pluck('user_id');
+            $user = User::where('id',$cari_user_id);
+            $user->update([
+                'name' => $request->nama_peminjam,
+            ]);
         }
 
         //update telepon
@@ -122,9 +139,14 @@ class DataPeminjamController extends Controller
     }
 
     public function destroy($id){
+        //Menghapus data user apabila data peminjam dihapus
+        $cari_user_id = DataPeminjam::where('id',$id)->pluck('user_id');
+        $user_id = User::where('id', $cari_user_id);
+        $user_id->delete();
+        
+        //Hapus data tabel data_peminjam
         $data_peminjam = DataPeminjam::find($id);
         $data_peminjam->delete();
-
         Session::flash('flash_message', 'Data Peminjam Berhasil Dihapus');
         Session::flash('penting', true);
 

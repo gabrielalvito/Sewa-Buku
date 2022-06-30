@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label>Alamat</label>
-                <br><textarea name="alamat" id="" cols="148" rows="3">{{ $peminjam->alamat }}</textarea>
+                <br><textarea name="alamat" id="" cols="173" rows="3">{{ $peminjam->alamat }}</textarea>
             </div>
             <div class="form-group">
                 <label>Pekerjaan</label>
@@ -45,8 +45,9 @@
                 <label>Foto</label>
                 <input type="file" name="foto" class="form-control">
             </div>
+            <br>
             <div>
-                <button type="submit">Simpan</button>
+                <button class="btn btn-success" type="submit">Simpan</button>
             </div>
         </form>
     </div>

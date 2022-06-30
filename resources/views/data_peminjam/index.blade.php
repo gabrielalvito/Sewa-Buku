@@ -2,6 +2,7 @@
 
 @section('content')
     <div class = "container">
+        <br>
         <h4>Data Peminjam</h4>
 
         @include('_partial/flash_message')
@@ -9,7 +10,8 @@
         <form action="{{ route('data_peminjam.search') }}" method="get">@csrf
             <input type="text" name="kata" placeholder="Cari...">
         </form>
-        <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p>
+        <br>
+        <!-- <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p> -->
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
