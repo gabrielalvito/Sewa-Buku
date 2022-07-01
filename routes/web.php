@@ -21,11 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
-
 Route::get('/', 'App\Http\Controllers\IndexController@index');
 
-Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index')->name('data_peminjam.index');
+// Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index')->name('data_peminjam.index');
+Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index')->name('peminjam.index');
 
 Route::get('data_peminjam/create', 'App\Http\Controllers\DataPeminjamController@create')->name('data_peminjam.create');
 
@@ -38,6 +37,7 @@ Route::get('data_peminjam/edit/{id}', 'App\Http\Controllers\DataPeminjamControll
 Route::post('data_peminjam/update/{id}', 'App\Http\Controllers\DataPeminjamController@update')->name('data_peminjam.update');
 
 Route::post('data_peminjam/delete/{id}', 'App\Http\Controllers\DataPeminjamController@destroy')->name('data_peminjam.destroy');
+
 
 Route::get('coba_collection', 'App\Http\Controllers\DataPeminjamController@CobaCollection');
 
@@ -59,6 +59,7 @@ Route::get('collection_toarray', 'App\Http\Controllers\DataPeminjamController@co
 
 Route::get('collection_tojson', 'App\Http\Controllers\DataPeminjamController@collection_tojson');
 
+
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index')->name('peminjaman.index');
 
 Route::get('peminjaman/create', 'App\Http\Controllers\PeminjamanController@create')->name('peminjaman.create');
@@ -70,6 +71,7 @@ Route::get('peminjaman/detail_peminjam/{id}', 'App\Http\Controllers\PeminjamanCo
 Route::get('peminjaman/detail_buku/{id}', 'App\Http\Controllers\PeminjamanController@detail_buku')->name('peminjaman.detail_buku');
 
 Route::get('data_peminjam/search', 'App\Http\Controllers\DataPeminjamController@search')->name('data_peminjam.search');
+
 
 //USER
 Route::get('user', 'App\Http\Controllers\UserController@index')->name('user.index');
@@ -83,3 +85,5 @@ Route::get('user/edit/{id}', 'App\Http\Controllers\UserController@edit')->name('
 Route::post('user/update/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
 
 Route::post('user/destroy/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
+
+require __DIR__.'/auth.php';
