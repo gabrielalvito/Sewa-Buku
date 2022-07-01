@@ -18,6 +18,11 @@ use App\Models\User;
 
 class DataPeminjamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $jumlah_peminjam = DataPeminjam::count();
         $data_peminjam  = DataPeminjam::orderBy('id', 'asc')->paginate(5);

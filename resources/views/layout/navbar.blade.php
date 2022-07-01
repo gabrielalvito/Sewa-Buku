@@ -5,9 +5,14 @@
   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+      @if (Auth::check() && Auth::user())
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('buku.index') }}" style="color: white;">Data Buku</a>
+      </li>
+      @endif
+      @if (Auth::check() && Auth::user()-> level == 'admin')
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{{ route('data_peminjam.index') }}" style="color: white;">Data Peminjam</a>
       </li>
@@ -17,6 +22,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('user.index') }}" style="color: white;">User</a>
       </li>
+      @endif
       <li class="nav-item">
         <a class="btn btn-success" href="{{ route('logout') }}" style="color: white;" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

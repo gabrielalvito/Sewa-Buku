@@ -11,6 +11,6 @@
     @include('layout.header')
     @yield('content')
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('js/data_peminjamapp.min.js')}}"></script>
+        <script src="{{asset('js/data_peminjamapp.js')}}"></script>
 </body>
 </html>
