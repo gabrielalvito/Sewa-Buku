@@ -11,7 +11,7 @@
             <input type="text" name="kata" placeholder="Cari...">
         </form>
         <br>
-        <!-- <p align="right"><a href="{{route('data_peminjam.create')}}" class="btn btn-success">Tambah Data Peminjam</a></p> -->
+        <p align="left"><a href="{{route('data_peminjam.data_peminjam_pdf')}}" class="btn btn-success">Download Data Peminjam</a></p>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -65,7 +65,7 @@
         
         <div class="pull-left">
             <strong>
-                Jummlah Peminjam : {{ $jumlah_peminjam }}
+                Jumlah Peminjam : {{ $jumlah_peminjam }}
             </strong>
             <p>{{ $data_peminjam->links() }}</p>
             

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Models\User;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class DataPeminjamController extends Controller
 {
     public function __construct()
@@ -178,6 +180,20 @@ class DataPeminjamController extends Controller
         });
         return $collection;
     }
+
+    public function data_peminjam_pdf()
+    {
+        $data_peminjam = DataPeminjam::all();
+        $pdf = Pdf::loadView('data_peminjam/data_peminjam_pdf', ['data_peminjam' => $data_peminjam]);
+        return $pdf->download('laporan.pdf');
+    }
+
+
+
+
+
+
+
 
     public function collection_first(){
         $collection = DataPeminjam::all()->first();
