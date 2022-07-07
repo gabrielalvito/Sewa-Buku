@@ -43,6 +43,8 @@ Route::post('data_peminjam/delete/{id}', 'App\Http\Controllers\DataPeminjamContr
 
 Route::get('data_peminjam/data_peminjam_pdf', 'App\Http\Controllers\DataPeminjamController@data_peminjam_pdf')->name('data_peminjam.data_peminjam_pdf');
 
+Route::get('export_excel', 'App\Http\Controllers\DataPeminjamController@export_excel')->name('data_peminjam.export_excel');
+
 //PEMINJAMAN
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index')->name('peminjaman.index');
 

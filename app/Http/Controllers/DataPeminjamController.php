@@ -18,6 +18,10 @@ use App\Models\User;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use App\Exports\DataPeminjamExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 class DataPeminjamController extends Controller
 {
     public function __construct()
@@ -188,7 +192,10 @@ class DataPeminjamController extends Controller
         return $pdf->download('laporan.pdf');
     }
 
-
+    public function export_excel()
+    {
+        return Excel::download(new DataPeminjamExport, 'data_peminjam.xlsx');
+    }
 
 
 

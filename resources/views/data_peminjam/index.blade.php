@@ -11,7 +11,10 @@
             <input type="text" name="kata" placeholder="Cari...">
         </form>
         <br>
-        <p align="left"><a href="{{route('data_peminjam.data_peminjam_pdf')}}" class="btn btn-success">Download Data Peminjam</a></p>
+        <p align="left"><a href="{{route('data_peminjam.data_peminjam_pdf')}}" class="btn btn-success" style="width: 250px;">Download Data Peminjam</a></p>
+
+        <p align="left"><a href="{{route('data_peminjam.export_excel')}}" class="btn btn-success" style="width: 250px;">Export Data Peminjam</a></p>
+
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
